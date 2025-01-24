@@ -32,16 +32,15 @@ export default function RootLayout({ children }) {
       >
         <Navbar></Navbar>
         {/* Main Content */}
-        <main className="min-h-screen bg-gray-100">{children}</main>
-
-        {/* Footer
+        <main className="min-h-screen bg-gray-200">{children}</main>
+        {/* Footer */}
         <footer className="bg-gray-800 text-white py-4">
           <div className="max-w-7xl mx-auto text-center">
             <p>
               © {new Date().getFullYear()} YourAppName. All rights reserved.
             </p>
           </div>
-        </footer> */}
+        </footer>
       </body>
     </html>
   );

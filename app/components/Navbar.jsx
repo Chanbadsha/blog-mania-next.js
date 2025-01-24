@@ -1,4 +1,7 @@
-import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import {
+  getKindeServerSession,
+  LogoutLink,
+} from "@kinde-oss/kinde-auth-nextjs/server";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -6,7 +9,7 @@ import React from "react";
 const Navbar = async () => {
   const { getUser } = getKindeServerSession();
   const user = await getUser();
-  console.log(user);
+
   return (
     <div>
       {/* Navigation Bar */}
@@ -36,20 +39,27 @@ const Navbar = async () => {
                 Blog
               </Link>
             </li>
-            <li>
-              <Link href="/api/auth/login" className="hover:underline">
-                Login
-              </Link>
-            </li>
-            <li>
-              <Link href="/api/auth/register" className="hover:underline">
-                Register
-              </Link>
-            </li>
+            {user ? (
+              <>
+                <li>
+                  <Link href="/profile" className="hover:underline">
+                    Profile
+                  </Link>
+                </li>
+              </>
+            ) : (
+              <>
+                <li>
+                  <Link href="/api/auth/register" className="hover:underline">
+                    Register
+                  </Link>
+                </li>
+              </>
+            )}
           </ul>
           {user ? (
             <>
-              <h2>{user.given_name}</h2>
+              <LogoutLink>Log out</LogoutLink>
             </>
           ) : (
             <>
