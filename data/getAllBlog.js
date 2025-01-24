@@ -3,8 +3,7 @@ const getAllBlog = async () => {
     "https://jsonplaceholder.typicode.com/posts?_limit=20"
   );
   const data = await all_post.json();
-  console.log(all_post);
-  console.log(data);
+
   return data;
 };
 

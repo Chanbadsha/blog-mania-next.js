@@ -13,6 +13,7 @@ const Profile = async () => {
     );
   }
 
+
   return (
     <div className="flex items-center  justify-center p-6 bg-gray-100 rounded-lg shadow-lg">
       {/* User Information */}
@@ -22,7 +23,7 @@ const Profile = async () => {
         </h2>
         <p className="text-gray-600 mt-2">
           <strong className="text-gray-800">Name:</strong>{" "}
-          {user.name || "No Name Available"}
+          {user.given_name || "No Name Available"}
         </p>
         <p className="text-gray-600 mt-1">
           <strong className="text-gray-800">Email:</strong>{" "}
